@@ -5,7 +5,6 @@
 #include <ctest.h>
 #include <func.h>
 
-
 CTEST(bulls_and_cows, input_correct)
 {
 	int really;
@@ -84,6 +83,48 @@ CTEST(bulls_and_cows, count_cows)
 
 	really = count_cows(number, num5);
 	ASSERT_EQUAL(exp5, really);
+}
+
+CTEST(bulls_and_cows, str_to_int)
+{
+	int *really;
+	int n;
+	char num1[] = "4167";
+	char num2[] = "823511";
+	char num3[] = "1f22";
+	char num4[] = "31ad6";
+	char num5[] = "1234";
+	int exp1[] = {4, 1, 6, 7};
+	int exp2[] = {8, 2, 3, 5, 1, 1};
+	int exp3[] = {0, 0, 0, 0};
+	int exp4[] = {0, 1, 0, 0, 0};
+	int exp5[] = {1, 2, 3, 4};
+
+	n = strlen(num1) - 1;
+	really = str_to_int(num1, n);
+	for(int i = 0; i < n; i++)
+		ASSERT_EQUAL(exp1[i], really[i]);
+
+	n = strlen(num2) - 1;
+	really = str_to_int(num2, n);
+	for(int i = 0; i < n; i++)
+		ASSERT_EQUAL(exp2[i], really[i]);
+
+	n = strlen(num3) - 1;
+	really = str_to_int(num3, n);
+	for(int i = 0; i < n; i++)
+		ASSERT_EQUAL(exp3[i], really[i]);
+
+	n = strlen(num4) - 1;
+	really = str_to_int(num4, n);
+	for(int i = 0; i < n; i++)
+		ASSERT_EQUAL(exp4[i], really[i]);
+
+	n = strlen(num5) - 1;
+	really = str_to_int(num5, n);
+	for(int i = 0; i < n; i++)
+		ASSERT_EQUAL(exp5[i], really[i]);
+
 }
 
 int main(int argc, const char** argv)
