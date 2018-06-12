@@ -19,34 +19,15 @@ void game(int players)
 			fgets(num, 100, stdin);
 			len = strlen(num);
 			B = str_to_int(num, len - 1);
-			if ((strlen(num) == 2) && (num[0] == 'q'))
+			check = check_input(num, B, len);
+			if (check == 0)
 				return;
-			else if (B[0] == 0) {
-				system("clear");
-				if ((lan % 2) == 0)
-					printf("ERROR: you should enter four-digit nubmer\n");
-				else
-					printf("ОШИБКА: вы доолжны ввести четырех значное число\n");
+			else if (check == -1)
 				continue;
-			}else if (len != 5) {
+			else {
 				system("clear");
-				if ((lan % 2) == 0)
-					printf("ERROR: number must be four-digit\n");
-				else
-					printf("ОШИБКА: чилсо должно быть четырех значное\n");
-				continue;
+				break;
 			}
-			check = input_correct(B);
-			if (check != 0) {
-				system("clear");
-				if ((lan % 2) == 0)
-					printf("The digits must be all different\n");
-				else
-					printf("Цифры должны быть разными\n");
-				continue;
-			}
-			system("clear");
-			break;
 		}
 	}
 	
@@ -59,32 +40,11 @@ void game(int players)
 		fgets(num, 100, stdin);
 		len = strlen(num);
 		A = str_to_int(num, len - 1);
-		if ((strlen(num) == 2) && (num[0] == 'q'))
+		check = check_input(num, A, len);
+		if (check == 0)
 			return;
-		else if (A[0] == 0) {
-			system("clear");
-			if ((lan % 2) == 0)
-				printf("ERROR: you should enter four-digit nubmer\n");
-			else
-				printf("ОШИБКА: вы доолжны ввести четырех значное число\n");
+		else if (check == -1)
 			continue;
-		}else if (len != 5) {
-			system("clear");
-			if ((lan % 2) == 0)
-				printf("ERROR: number must be four-digit\n");
-			else
-				printf("ОШИБКА: чилсо должно быть четырех значное\n");
-			continue;
-		}
-		check = input_correct(B);
-		if (check != 0) {
-			system("clear");
-			if ((lan % 2) == 0)
-				printf("The digits must be all different\n");
-			else
-				printf("Цифры должны быть разными\n");
-			continue;
-		}
 		
 		system("clear");
 		prev_num[attempt - 1] = A[0] * 1000 + A[1] * 100 + A[2] * 10 + A[3];
