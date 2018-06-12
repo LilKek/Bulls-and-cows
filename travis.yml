@@ -1,3 +1,0 @@
-language: c
-compiler: gcc
-script: make adddir & make & make test
