@@ -92,3 +92,34 @@ int count_cows (int *A, int *B)
 		printf("\n");
 	return cows;
 }
+
+int check_input(char *str, int *arr, int len)
+{
+	if ((len == 2) && (str[0] == 'q'))
+		return 0;
+	else if (arr[0] == 0) {
+		system("clear");
+		if ((lan % 2) == 0)
+			printf("ERROR: you should enter four-digit nubmer\n");
+		else
+			printf("ОШИБКА: вы доолжны ввести четырех значное число\n");
+		return -1;
+	}else if (len != 5) {
+		system("clear");
+		if ((lan % 2) == 0)
+			printf("ERROR: number must be four-digit\n");
+		else
+			printf("ОШИБКА: чилсо должно быть четырех значное\n");
+		return -1;
+	}
+	int check = input_correct(arr);
+	if (check != 0) {
+		system("clear");
+		if ((lan % 2) == 0)
+			printf("The digits must be all different\n");
+		else
+			printf("Цифры должны быть разными\n");
+		return -1;
+	}
+	return 1;
+}
