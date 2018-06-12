@@ -12,3 +12,5 @@ int *gen_number ();
 int count_bulls (int *A, int *B);
 
 int count_cows (int *A, int *B);
+
+int check_input(char *str, int *arr, int len);
