@@ -73,6 +73,7 @@ void eng_rules(int err)
 {
 	system("clear");
 	printf("You have to guess computer's(or other player's) the four-digit number\n");
+	printf("You have only 10 attempts\n");
 	printf("The digits must be all different\n");
 	printf("Cows - the guessed digits are in different positions\n");
 	printf("Bulls - the guessed digits are in their right positions\n");
@@ -89,6 +90,7 @@ void rus_rules(int err)
 {
 	system("clear");
 	printf("Вы должны отгадать загаданное компьютером (или другим игроком) четырех значное число\n");
+	printf("У вас есть только 10 попыток\n");
 	printf("Цифры не должны повторяться\n");
 	printf("Коровы - цифры, этого числа, находящиеся не на своих позициях\n");
 	printf("Быки - цифры, угаданные вплоть до позиций\n");
